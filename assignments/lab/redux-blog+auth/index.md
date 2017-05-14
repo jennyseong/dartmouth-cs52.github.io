@@ -106,7 +106,7 @@ Now we get to implement that!
 
 #### Saving Salt+Hash
 
-For saving the password,  we're going to need a utilize a mongoose [pre save hook](http://mongoosejs.com/docs/middleware.html#pre). This is a bit tricky.   We define a function that will be called when the User object is saved.  It will then take the plain text password and generate a salt and hash the password and save the salt+hash instead.
+For saving the password,  we're going to need a utilize a mongoose [pre save hook](http://mongoosejs.com/docs/middleware.html#pre). This is a bit tricky.   We define a function that will be called when the User object is saved.  It will then take the plain text password and generate a salt and hash for the password and save the salt+hash instead.
 
 The general syntax for the pre-save hook is:
 
@@ -174,7 +174,7 @@ This is slightly adapted for es6 from stackoverflow [mongoose-password-hashing](
 
 ### User Controller
 
-Let's add an new User controller!  
+Let's add a new User controller!  
 
 🚀 Create a `controllers/user_controller.js`.
 
@@ -324,7 +324,7 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
 });
 ```
 
-Read through the above, make sense?
+Read through the above. Make sense?
 
 
 For `jwtLogin`, we are given the payload of the passed in JWT. We need to check the userid and return the found user.  Want to give this one a shot?
